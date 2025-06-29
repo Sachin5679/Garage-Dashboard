@@ -1,41 +1,26 @@
 "use client";
 
+import { useAppStore } from "@/store/useAppStore";
 import { BenefitCard } from "@/components/BenefitCard";
-import { Gift, Percent, Ticket } from "lucide-react";
-
-const benefits = [
-  {
-    icon: Gift,
-    title: "Welcome Bonus",
-    description: "Get 500 bonus reward points on sign-up.",
-    ctaLabel: "Claim",
-  },
-  {
-    icon: Percent,
-    title: "Exclusive Discount",
-    description: "15% off on partner brands every Friday.",
-    ctaLabel: "Activate",
-  },
-  {
-    icon: Ticket,
-    title: "Voucher Unlock",
-    description: "Unlock ₹200 Flipkart voucher using 1000 XP.",
-    ctaLabel: "Redeem",
-  },
-];
 
 export function BenefitsGrid() {
+  const benefits = useAppStore((state) => state.benefits);
+
   return (
-    <section className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full max-w-5xl px-4">
+    <section
+      className="flex space-x-4 w-full overflow-x-auto px-4 scrollbar-thin"
+      style={{ scrollSnapType: "x mandatory" }}
+    >
       {benefits.map((b, idx) => (
-        <BenefitCard
-          key={idx}
-          icon={b.icon}
-          title={b.title}
-          description={b.description}
-          ctaLabel={b.ctaLabel}
-          onClick={() => alert(`Clicked: ${b.title}`)}
-        />
+        <div key={idx} style={{ scrollSnapAlign: "start" }}>
+          <BenefitCard
+            icon={b.icon}
+            title={b.title}
+            description={b.description}
+            ctaLabel={b.ctaLabel}
+            onClick={() => alert(`Clicked: ${b.title}`)}
+          />
+        </div>
       ))}
     </section>
   );

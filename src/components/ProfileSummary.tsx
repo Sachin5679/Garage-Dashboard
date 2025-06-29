@@ -16,23 +16,27 @@ export function ProfileSummary({
   avatarUrl,
 }: ProfileSummaryProps) {
   return (
-    <Card className="w-full max-w-sm shadow-md">
-      <CardContent className="p-4 flex flex-col items-center space-y-4">
-        <Avatar className="h-16 w-16">
+    <Card className="w-full shadow-md">
+      <CardContent className=" flex items-center gap-6">
+        
+        <Avatar className="h-14 w-14 shrink-0">
           <AvatarImage src={avatarUrl} alt={name} />
           <AvatarFallback>{name.slice(0, 2).toUpperCase()}</AvatarFallback>
         </Avatar>
 
-        <div className="text-center">
-          <h2 className="text-lg font-semibold">{name}</h2>
-          <p className="text-sm text-muted-foreground">Level {level}</p>
-        </div>
+        
+        <div className="flex-1">
+          <div className="mb-1">
+            <h2 className="text-base font-semibold leading-tight">{name}</h2>
+            <p className="text-sm text-muted-foreground">Level {level}</p>
+          </div>
 
-        <div className="w-full space-y-1">
-          <Progress value={xpPercent} />
-          <p className="text-xs text-muted-foreground text-center">
-            {xpPercent}% to next level
-          </p>
+          <div>
+            <Progress value={xpPercent} />
+            <p className="text-xs text-muted-foreground mt-1">
+              {xpPercent}% to next level
+            </p>
+          </div>
         </div>
       </CardContent>
     </Card>
