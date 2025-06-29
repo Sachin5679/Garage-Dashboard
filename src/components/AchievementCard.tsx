@@ -20,6 +20,7 @@ export function AchievementCard({
     whileHover={{ scale: 1.03 }}
     whileTap={{ scale: 0.97 }}
     transition={{ type: "spring", stiffness: 300, damping: 20 }}
+    className="h-full"
     >
     <Card className="h-full flex flex-col items-center justify-between text-center p-4 shadow-sm">
         <Icon className="h-8 w-8 text-yellow-400 mb-2" />

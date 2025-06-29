@@ -14,14 +14,14 @@ export function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
         
-        <h1 className="text-xl sm:text-2xl font-bold tracking-tight">Dashboard</h1>
+        <h1 className="text-xl sm:text-2xl font-bold tracking-tight">Garage Dashboard</h1>
 
         
         <div className="flex items-center gap-4">
           <ThemeToggle />
           <Avatar className="h-8 w-8">
             <AvatarImage
-              src="https://api.dicebear.com/7.x/personas/svg?seed=sachin"
+              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face"
               alt="User"
             />
             <AvatarFallback>SJ</AvatarFallback>

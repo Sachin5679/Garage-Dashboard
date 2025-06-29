@@ -50,7 +50,7 @@ export function RewardChart({ points, goal }: RewardChartProps) {
         </CardHeader>
 
         <CardContent className="flex flex-col items-center justify-center gap-4">
-          <div className="relative w-48 h-48">
+          <div className="relative w-48 h-50">
             <ResponsiveContainer width="100%" height="100%">
               <RadialBarChart
                 innerRadius="70%"
