@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { LucideIcon } from "lucide-react";
 
 type User = {
   name: string;
@@ -13,11 +14,11 @@ type Benefit = {
   title: string;
   description: string;
   ctaLabel: string;
-  icon: any;
+  icon: LucideIcon;
 };
 
 type Achievement = {
-  icon: any;
+  icon: LucideIcon;
   title: string;
   description: string;
 };

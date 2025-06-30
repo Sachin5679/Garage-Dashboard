@@ -34,19 +34,16 @@ export default function Home() {
   useEffect(() => {
     const loadData = async () => {
       setLoading(true);
-
       const [user, benefits, achievements] = await Promise.all([
         fetchMockUser(),
         fetchMockBenefits(),
         fetchMockAchievements(),
       ]);
-
       setUser(user);
       setBenefits(benefits);
       setAchievements(achievements);
       setLoading(false);
     };
-
     loadData();
   }, [setUser, setBenefits, setAchievements, setLoading]);
 
@@ -56,46 +53,39 @@ export default function Home() {
 
       <main className="min-h-screen bg-gradient-to-br from-background via-background to-muted/5">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6 lg:py-10 max-w-[1400px]">
-          
-          {/* Mobile-First Layout */}
-          <div className="space-y-6 lg:space-y-0 lg:grid lg:grid-cols-12 lg:gap-6 xl:gap-8">
-            
-            {/* Left */}
-            <aside className="lg:col-span-4 xl:col-span-3 lg:order-1">
-              <div className="space-y-4 lg:space-y-6 lg:sticky lg:top-6">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4 lg:gap-6">
-                  {isLoading || !user ? (
-                    <>
-                      <ProfileSkeleton />
-                      <div className="sm:block lg:block">
-                        <RewardChartSkeleton />
-                      </div>
-                    </>
-                  ) : (
-                    <>
-                      <ProfileSummary
-                        name={user.name}
-                        level={user.level}
-                        xpPercent={user.xpPercent}
-                        avatarUrl={user.avatarUrl}
-                      />
-                      <div className="sm:block lg:block">
-                        <RewardChart points={user.points} goal={user.goal} />
-                      </div>
-                    </>
-                  )}
-                </div>
+          <div className="grid lg:grid-cols-12 gap-6 xl:gap-8 min-h-[calc(100vh-64px)]">
+            {/* Left Panel */}
+          <aside className="lg:col-span-4 xl:col-span-3 flex flex-col h-full w-full">
+            <div className="space-y-6 sticky top-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
+                {isLoading || !user ? (
+                  <>
+                    <ProfileSkeleton />
+                    <RewardChartSkeleton />
+                  </>
+                ) : (
+                  <>
+                    <ProfileSummary
+                      name={user.name}
+                      level={user.level}
+                      xpPercent={user.xpPercent}
+                      avatarUrl={user.avatarUrl}
+                    />
+                    <RewardChart points={user.points} goal={user.goal} />
+                  </>
+                )}
               </div>
-            </aside>
+            </div>
+          </aside>
 
-            {/* Centre */}
-            <main className="lg:col-span-8 xl:col-span-5 lg:order-2 space-y-8 lg:space-y-10 xl:space-y-12">
-              
+
+            {/* Center Panel */}
+            <section className="lg:col-span-8 xl:col-span-5 flex flex-col h-full overflow-hidden space-y-10">
               {/* Benefits */}
-              <section className="group">
-                <div className="mb-4 lg:mb-6 xl:mb-8">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 gap-2">
-                    <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-foreground">
+              <div>
+                <div className="mb-6">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
+                    <h2 className="text-2xl lg:text-3xl font-bold text-foreground">
                       Your Benefits
                     </h2>
                     {!isLoading && benefits && (
@@ -104,13 +94,13 @@ export default function Home() {
                       </span>
                     )}
                   </div>
-                  <p className="text-muted-foreground text-sm sm:text-base lg:text-lg leading-relaxed">
+                  <p className="text-muted-foreground text-sm sm:text-base">
                     Exclusive rewards and perks for your automotive needs.
                   </p>
                 </div>
 
                 {isLoading ? (
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 lg:gap-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {Array(4).fill(0).map((_, i) => (
                       <BenefitCardSkeleton key={i} />
                     ))}
@@ -118,13 +108,13 @@ export default function Home() {
                 ) : (
                   <BenefitsGrid />
                 )}
-              </section>
+              </div>
 
               {/* Achievements */}
-              <section className="group">
-                <div className="mb-4 lg:mb-6 xl:mb-8">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 gap-2">
-                    <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-foreground">
+              <div>
+                <div className="mb-6">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
+                    <h2 className="text-2xl lg:text-3xl font-bold text-foreground">
                       Your Achievements
                     </h2>
                     {!isLoading && achievements && (
@@ -133,12 +123,12 @@ export default function Home() {
                       </span>
                     )}
                   </div>
-                  <p className="text-muted-foreground text-sm sm:text-base lg:text-lg">
+                  <p className="text-muted-foreground text-sm sm:text-base">
                     Milestones and accomplishments from your journey.
                   </p>
                 </div>
 
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-3 sm:gap-4 lg:gap-6 auto-rows-fr">
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-4 auto-rows-fr">
                   {isLoading
                     ? Array(6).fill(0).map((_, i) => (
                         <div
@@ -147,9 +137,9 @@ export default function Home() {
                         />
                       ))
                     : achievements.map((achv, idx) => (
-                        <div 
+                        <div
                           key={idx}
-                          className="transform transition-all duration-200 hover:scale-[1.02] hover:-translate-y-1 h-full"
+                          className="transition-all transform hover:scale-[1.02] hover:-translate-y-1 h-full"
                         >
                           <AchievementCard
                             icon={achv.icon}
@@ -159,13 +149,13 @@ export default function Home() {
                         </div>
                       ))}
                 </div>
-              </section>
-            </main>
+              </div>
+            </section>
 
-            {/* Right */}
-            <aside className="lg:col-span-12 xl:col-span-4 lg:order-3">
-              <div className="xl:sticky xl:top-6">
-                <div className="lg:max-w-md lg:mx-auto xl:max-w-none">
+            {/* Right Panel */}
+            <aside className="xl:col-span-4 flex flex-col h-full">
+              <div className="top-6 h-full">
+                <div className="h-full">
                   <VehicleDetails />
                 </div>
               </div>

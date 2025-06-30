@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
-import { Plus, Settings, ArrowRight, Maximize } from "lucide-react";
+import { Plus, Settings, ArrowRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { useAppStore } from "../store/useAppStore";
 import { fetchMockVehicles } from "../lib/mockApi";

@@ -142,5 +142,5 @@ export async function fetchMockVehicles() {
 }
 
 function delay(ms: number) {
-  return new Promise((resolve) => setTimeout(resolve));
+  return new Promise((resolve) => setTimeout(resolve, ms));
 }
