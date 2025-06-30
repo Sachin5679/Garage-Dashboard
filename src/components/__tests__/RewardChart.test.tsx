@@ -1,8 +1,9 @@
 import { render, screen } from "@testing-library/react";
-import {RewardChart} from "../RewardChart";
+import { RewardChart } from "../RewardChart";
+import React from "react"; // needed for JSX types
 
 jest.mock("recharts", () => ({
-  ResponsiveContainer: ({ children }: any) => <div>{children}</div>,
+  ResponsiveContainer: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
   RadialBarChart: () => <div>RadialBarChart</div>,
   RadialBar: () => <div>RadialBar</div>,
   Legend: () => <div>Legend</div>,
