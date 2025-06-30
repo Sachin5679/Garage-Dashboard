@@ -28,7 +28,7 @@ export function VehicleDetails() {
   return (
     <Card className="w-full h-full flex flex-col overflow-hidden">
       <CardContent className="p-0 flex flex-col h-full">
-        <CarViewer />
+        
 
         <div className="p-4 overflow-y-auto flex-1">
           {/* <div className="flex justify-end mb-4">
@@ -54,6 +54,8 @@ export function VehicleDetails() {
               </span>
             </div>
           </div>
+
+          <CarViewer />
 
           <div className="bg-muted/30 border border-border rounded-full px-4 py-2 mb-6 flex items-center justify-between hover:bg-muted/50 transition-colors cursor-pointer">
             <div className="flex items-center">

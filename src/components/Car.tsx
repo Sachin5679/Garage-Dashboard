@@ -34,7 +34,7 @@ export function CarViewer() {
           <Bounds fit clip observe margin={0.5}>
             <CarModel />
           </Bounds>
-          <OrbitControls autoRotate autoRotateSpeed={1.5} />
+          <OrbitControls autoRotate autoRotateSpeed={2} />
         </Suspense>
       </Canvas>
     </div>
