@@ -165,7 +165,6 @@ export default function Home() {
             {/* Right */}
             <aside className="lg:col-span-12 xl:col-span-4 lg:order-3">
               <div className="xl:sticky xl:top-6">
-                {/* Mobile: Show vehicle details prominently */}
                 <div className="lg:max-w-md lg:mx-auto xl:max-w-none">
                   <VehicleDetails />
                 </div>

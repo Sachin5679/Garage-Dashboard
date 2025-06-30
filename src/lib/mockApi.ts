@@ -101,43 +101,6 @@ export async function fetchMockVehicles() {
   return [
     {
       id: "1",
-      brand: "Honda",
-      model: "Amaze",
-      plateNumber: "MH GJ01KU7531",
-      state: "MH",
-      color: "#1e40af", // blue-700
-      actionsPending: 3,
-      totalActions: 5,
-      services: [
-        {
-          id: "insurance",
-          name: "insurance",
-          status: "expires_soon" as const,
-          expiryDate: "2025-07-26",
-          daysRemaining: 27,
-          buttonText: "View plans",
-          buttonAction: "view_plans"
-        },
-        {
-          id: "fastag",
-          name: "fastag",
-          status: "low_balance" as const,
-          balance: 200,
-          currency: "₹",
-          buttonText: "Recharge",
-          buttonAction: "recharge"
-        },
-        {
-          id: "traffic_challans",
-          name: "traffic challans",
-          status: "never_checked" as const,
-          buttonText: "Check now",
-          buttonAction: "check_challans"
-        }
-      ]
-    },
-    {
-      id: "2",
       brand: "Maruti",
       model: "Swift",
       plateNumber: "KA 03AB1234",
@@ -148,7 +111,7 @@ export async function fetchMockVehicles() {
       services: [
         {
           id: "insurance",
-          name: "insurance",
+          name: "Insurance",
           status: "active" as const,
           expiryDate: "2025-12-15",
           daysRemaining: 169,
@@ -157,7 +120,7 @@ export async function fetchMockVehicles() {
         },
         {
           id: "fastag",
-          name: "fastag",
+          name: "Fastag",
           status: "good_balance" as const,
           balance: 1500,
           currency: "₹",
@@ -166,7 +129,7 @@ export async function fetchMockVehicles() {
         },
         {
           id: "traffic_challans",
-          name: "traffic challans",
+          name: "Traffic challans",
           status: "pending" as const,
           amount: 2500,
           currency: "₹",
