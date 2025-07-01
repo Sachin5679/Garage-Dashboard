@@ -80,12 +80,10 @@ Tile layout showcasing user accomplishments with icon badges and descriptions. S
 
 ---
 
-## 🔧 Setup Instructions
+## 🔧 How to run
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/yourusername/cred-garage-dashboard.git
-cd cred-garage-dashboard
 
 # 2. Install dependencies
 npm install
