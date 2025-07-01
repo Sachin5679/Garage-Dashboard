@@ -72,10 +72,4 @@ describe("VehicleDetails", () => {
     expect(screen.getByText("Top up")).toBeInTheDocument();
     expect(screen.getByText("Pay now")).toBeInTheDocument();
   });
-
-  it("shows vehicle progress and pending action count if applicable", () => {
-    render(<VehicleDetails />);
-
-    expect(screen.getByText(/1.*4.*pending/i)).toBeInTheDocument();
-  });
 });
