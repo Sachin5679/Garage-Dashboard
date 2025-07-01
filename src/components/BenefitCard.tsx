@@ -41,7 +41,7 @@ export function BenefitCard({
         </CardContent>
 
         <CardFooter className="pt-2">
-          <Button size="sm" className="w-full" onClick={onClick}>
+          <Button size="sm" className="w-full cursor-pointer" onClick={onClick}>
             {ctaLabel}
           </Button>
         </CardFooter>

@@ -31,11 +31,6 @@ export function VehicleDetails() {
         
 
         <div className="p-4 overflow-y-auto flex-1">
-          {/* <div className="flex justify-end mb-4">
-            <button className="w-10 h-10 bg-muted hover:bg-muted/80 rounded-full flex items-center justify-center transition-colors">
-              <Maximize className="w-5 h-5 text-muted-foreground" />
-            </button>
-          </div> */}
 
           {/* Header */}
           <div className="text-center mb-6">
@@ -57,29 +52,18 @@ export function VehicleDetails() {
 
           <CarViewer />
 
-          <div className="bg-muted/30 border border-border rounded-full px-4 py-2 mb-6 flex items-center justify-between hover:bg-muted/50 transition-colors cursor-pointer">
-            <div className="flex items-center">
-              <div className="w-2 h-2 bg-green-500 rounded-full mr-3" />
-              <span className="text-muted-foreground text-sm">
-                {vehicle.actionsPending}/{vehicle.totalActions} actions pending
-              </span>
-            </div>
-            <ArrowRight className="w-4 h-4 text-muted-foreground" />
-          </div>
-
           <div className="flex items-center justify-center gap-4 mb-6">
             <div className="w-8 h-8 bg-muted rounded-full ring-2 ring-red-600 flex items-center justify-center">
               <div className="w-4 h-4 bg-muted-foreground rounded-full" />
             </div>
             <button className="w-8 h-8 border-2 border-border rounded-full flex items-center justify-center hover:bg-muted/50 transition-colors">
-              <Plus className="w-4 h-4 text-muted-foreground" />
+              <Plus className="w-4 h-4 text-muted-foreground cursor-pointer" />
             </button>
             <div className="ml-auto">
               <Settings className="w-5 h-5 text-muted-foreground hover:text-foreground transition-colors cursor-pointer" />
             </div>
           </div>
 
-          {/* Services */}
           <div className="space-y-4">
             {vehicle.services.map((service, index) => (
               <div key={service.id}>
@@ -123,11 +107,11 @@ export function VehicleDetails() {
 
                   <div className="flex-shrink-0">
                     {service.buttonAction === "check_challans" ? (
-                      <button className="w-24 h-9 bg-muted hover:bg-muted/80 rounded flex items-center justify-center transition-colors">
+                      <button className="w-24 h-9 bg-muted hover:bg-muted/80 rounded flex items-center justify-center transition-colors cursor-pointer">
                         <ArrowRight className="w-4 h-4 text-muted-foreground" />
                       </button>
                     ) : (
-                      <button className="w-24 h-9 bg-foreground text-background rounded text-sm font-medium hover:bg-foreground/90 transition-colors flex items-center justify-center">
+                      <button className="w-24 h-9 cursor-pointer bg-foreground text-background rounded text-sm font-medium hover:bg-foreground/90 transition-colors flex items-center justify-center">
                         <span className="truncate px-2">
                           {service.buttonText}
                         </span>

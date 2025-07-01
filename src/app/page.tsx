@@ -9,6 +9,7 @@ import {
   ProfileSkeleton,
   BenefitCardSkeleton,
   RewardChartSkeleton,
+  VehicleDetailsSkeleton
 } from "@/components/Skeletons";
 import { AchievementCard } from "@/components/AchievementCard";
 import {
@@ -127,27 +128,19 @@ export default function Home() {
                     Milestones and accomplishments from your journey.
                   </p>
                 </div>
-
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-4 auto-rows-fr">
-                  {isLoading
-                    ? Array(6).fill(0).map((_, i) => (
-                        <div
-                          key={i}
-                          className="aspect-square bg-muted/30 rounded-2xl animate-pulse border border-border/30"
-                        />
-                      ))
-                    : achievements.map((achv, idx) => (
-                        <div
-                          key={idx}
-                          className="transition-all transform hover:scale-[1.02] hover:-translate-y-1 h-full"
-                        >
-                          <AchievementCard
-                            icon={achv.icon}
-                            title={achv.title}
-                            description={achv.description}
-                          />
-                        </div>
-                      ))}
+                <div className="grid grid-cols-1 xs:grid-cols-2 md:grid-cols-3 gap-4 auto-rows-fr sm:max-w-md md:max-w-none mx-auto">
+                  {achievements.map((achv, idx) => (
+                    <div
+                      key={idx}
+                      className="transition-transform hover:scale-[1.02] hover:-translate-y-1 h-full"
+                    >
+                      <AchievementCard
+                        icon={achv.icon}
+                        title={achv.title}
+                        description={achv.description}
+                      />
+                    </div>
+                  ))}
                 </div>
               </div>
             </section>
@@ -155,9 +148,7 @@ export default function Home() {
             {/* Right Panel */}
             <aside className="xl:col-span-4 flex flex-col h-full">
               <div className="top-6 h-full">
-                <div className="h-full">
-                  <VehicleDetails />
-                </div>
+                  {isLoading ? <VehicleDetailsSkeleton /> : <VehicleDetails />}
               </div>
             </aside>
           </div>

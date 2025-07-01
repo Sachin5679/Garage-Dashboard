@@ -32,3 +32,27 @@ export function RewardChartSkeleton() {
     </div>
   );
 }
+
+export function VehicleDetailsSkeleton() {
+  return (
+    <div className="w-full h-full p-4 space-y-6">
+      <Skeleton className="h-6 w-32 mx-auto" />
+      <Skeleton className="h-4 w-24 mx-auto" />
+      <Skeleton className="h-32 w-full rounded-lg" />
+      <div className="flex justify-center gap-4">
+        <Skeleton className="h-8 w-8 rounded-full" />
+        <Skeleton className="h-8 w-8 rounded-full" />
+        <Skeleton className="h-5 w-5" />
+      </div>
+      {Array.from({ length: 3 }).map((_, i) => (
+        <div key={i} className="space-y-2">
+          <Skeleton className="h-4 w-1/2" />
+          <Skeleton className="h-3 w-3/4" />
+          <Skeleton className="h-8 w-24" />
+          {i < 2 && <hr className="border-border" />}
+        </div>
+      ))}
+    </div>
+  );
+}
+
